@@ -1,0 +1,611 @@
+--Create an array with values 10, 25, 5, 85, 60 and insert 67 at index 2 and 
+Display the array elements.
+
+public class question1 {
+	public static void main(String[] args) {
+		int[] arrN = {10,25,5,85,60};
+		int insert = 67;
+		int place = 2;
+		
+		for (int i = arrN.length - 1; i > place; i--) {
+			arrN[i] = arrN[i - 1];
+		}
+		arrN[place] = insert;
+
+		for (int j = 0; j < arrN.length; j++) {
+		System.out.println(j + " element of array : " + arrN[j]);
+		}
+	}
+}
+
+
+
+--Create an array with values 19, 10, 8, 17 and search the element 8. Display the 
+index at which the element is found.
+
+public class question2 {
+	public static void main(String[] args) {
+		int[] arr = { 19,10,8,7 };
+		int value = 8;
+		int key = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == value) {
+				System.out.println("it is located in " + i + " th place");
+				key = 1;
+				break;
+			} else {
+				key = 0;
+			}
+		}
+		if (key == 1) {
+			System.out.println("Its is in the array");
+		} else {
+			System.out.println("Its is not in the array");
+		}
+	}
+}
+
+
+
+--Create an array with values 87, 49. 56, 98 and insert 32 at index 1. Display the array
+elements after the insertion operation.
+
+import java.util.*;
+public class q3 {
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		int[] arrN = {87,49,56,98};
+		int insert = 32;
+		int place = 1;
+
+			for (int i = arrN.length - 1; i > place; i--) {
+				arrN[i] = arrN[i - 1];
+			}
+			arrN[place] = insert;
+
+			for (int j = 0; j < arrN.length; j++) {
+				System.out.println(j + " element of array : " + arrN[j]);
+			}
+	}
+}
+
+
+
+--Create an array with values 10, 20, 30, 60, 50, 40 and search element 20. Display the index at
+which the element is found after search operation.
+
+public class q4 {
+	public static void main(String[] args) {
+		int[] arr = {10, 20, 30, 60, 50, 40};
+		int value = 20;
+		
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == value) {
+				System.out.println("it is located in " + i + " th place");
+				break;
+			}
+		}
+	}
+}
+
+
+--Create an array with values 10, 30, 50, 70, 90 and remove element 50 which is at index 2.
+Display the array elements.
+
+public class q5 {
+	public static void main(String[] args) {
+		int[] arr = {10, 30, 50, 70, 90};
+		int value = 50;
+		
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == value) {
+				System.out.println("it is located in " + i + " th place");
+				// break;
+				for (int j = i; j < arr.length - 1; j++) {
+					arr[j] = arr[j + 1];
+				}
+				arr[arr.length - 1] = 0;
+				
+				for (int x = 0; x < arr.length; x++) {
+					System.out.print(arr[x] + " ");
+				}
+				break;
+			}
+		}
+	}
+}
+
+
+
+
+--PastPaper Question 01
+
+package com.mycompany.test;
+import java.util.Arrays;
+
+public class Stud {
+	
+	static int[] arr ={103,101,74,107,84,109,67,111,113};
+	
+	public void find() {
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i]==84) {
+				System.out.println("Index is "+ i);
+				break;
+			}
+		}
+	}
+	
+	public void insert(int index, int val) {
+			
+			int[] newArr = new int[arr.length+1];
+			for (int i=0,j=0;i<newArr.length;i++) {
+				if (i == index) {
+					newArr[i]=val;
+				}else {
+					newArr[i]=arr[j++];
+				}
+			}
+		
+		arr=newArr;
+		System.out.println("after insert: "+Arrays.toString(arr));
+		}
+	
+	
+	public void delete(int index) {
+			
+			int[] newArr = new int[arr.length-1];
+			for (int i=0,j=0;i<newArr.length;i++) {
+				if (i == index) {
+					j++;
+				}
+				newArr[i]=arr[j++];
+			}
+		arr=newArr;
+		System.out.println("After delete: "+Arrays.toString(arr));
+	}
+
+	public static void main(String[] args) {
+		System.out.println(Arrays.toString(arr));
+		Stud p = new Stud();
+		p.find();
+		p.insert(4, 75);
+		p.delete(109);
+
+	}
+
+}
+
+
+
+--stack 
+
+public class stack {
+
+    int[] list = new int[8];
+    int top=-1;
+
+    public void push(int data) {
+        if(isFull()) {
+            System.out.println("The Stack is full ..");
+        }
+        else {
+            list[++top]=data;
+        }
+    }
+
+    public boolean isEmpty() {
+        return top==-1;
+    }
+    public boolean isFull() {
+        return top==7;
+    }
+
+    public void pop() {
+        if(isEmpty()) {
+            System.out.println("The Stack is Empty..");
+        }
+        else {
+            list[top]=0;
+            top--;
+        }
+    }
+    public void display() {
+        for(int i=0; i<list.length;i++) {
+            System.out.println(" "+ list[i]);
+        }
+        System.out.println("  ");
+    }
+    public void peek(){
+        if(isEmpty()){
+            System.out.println("empty");
+        }else{
+            System.out.println("top is");
+            System.out.println(list[top]);
+        }
+    }
+
+    public static void main(String[] args) {
+        stack  st = new stack();
+        st.push(56);
+        st.push(23);
+        st.push(55);
+        st.display();
+        st.pop();
+        st.display();
+        st.peek();
+
+
+
+    }
+
+}
+
+
+
+
+--Queue
+
+package queue;
+
+
+public class Queue {
+
+private int size;
+private int arr[];
+private int front;
+private int rear;
+private int ele;
+
+public Queue(int size){
+this.size=size;
+arr=new int[size];
+front=-1;
+rear=-1;
+ele=0;
+}
+
+boolean isEmpty(){
+return ele==0;
+}
+
+boolean isFull(){
+return ele==size;
+}
+
+public void display(){
+for(int i=front;i<=rear;i++){
+System.out.println(arr[i]+" ");
+}
+System.out.println("elements are "+ele);
+}
+
+public void insert(int data){
+if(isEmpty()==true)
+    front++;
+
+
+if(isFull()==false){
+    rear++;
+    arr[rear]=data;
+    ele++;
+
+}
+else{
+   System.out.println("cant is insert...Que is Full");
+    
+}}
+
+public void remove(){
+if(isEmpty()==false){
+front++;
+ele--;
+}
+else{
+System.out.println("cant remove ..Que is Empty");
+}
+
+}
+int peek(){
+return arr[front];
+}
+
+int Size(){
+return ele;
+}
+
+    public static void main(String[] args) {
+        Queue a=new Queue(8);
+        a.isEmpty();
+        a.isFull();
+        a.insert(10);
+        a.insert(33);
+        a.insert(28);
+        a.insert(43);
+        a.remove();
+        System.out.println("front value is    :"+a.peek());
+        a.insert(11);
+        a.insert(27);
+        System.out.println("front value is    :"+a.peek());
+        a.display();
+        a.insert(18);
+        a.display();     
+    }
+}
+
+
+
+--selection sort
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[] num ={56,36,98,11,22,78,02,65};
+        System.out.println(Arrays.toString(num));
+        selectionSort(num);
+        System.out.println(Arrays.toString(num));
+
+    }
+    private static void selectionSort(int[] num) {
+        for (int i = 0; i < num.length; i++) {
+            int min = num[i];
+            int inofmin= i;
+            for (int j = i+1; j < num.length ; j++) {
+                if(num[j] < min){
+                    min = num[j];
+                    inofmin =j;
+                }
+            }
+            swap(num, i, inofmin);
+
+        }
+    }
+    private static void swap(int[] num, int a, int b) {
+        int temp = num[a];
+        num[a] = num[b];
+        num[b] = temp;
+    }
+}
+
+
+
+--bubble sort
+
+import java.util.Arrays;
+
+public class bub {
+
+    public static void main(String[] args) {
+        int arr[] = { 10, 13, 8, 3, 5, 21, 1, 12 };
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j < arr.length - i; j++) {
+                if (arr[j] < arr[j - 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                }
+            }
+
+        }
+
+        System.out.println(Arrays.toString(arr));
+
+    }
+}
+
+
+
+--merge sort
+
+import java.util.Arrays;
+
+class Main {
+
+    
+    void merge(int array[], int p, int q, int r) {
+
+        int n1 = q - p + 1;
+        int n2 = r - q;
+
+        int L[] = new int[n1];
+        int M[] = new int[n2];
+
+        for (int i = 0; i < n1; i++)
+            L[i] = array[p + i];
+        for (int j = 0; j < n2; j++)
+            M[j] = array[q + 1 + j]
+
+        int i, j, k;
+        i = 0;
+        j = 0;
+        k = p;
+
+        while (i < n1 && j < n2) {
+            if (L[i] <= M[j]) {
+                array[k] = L[i];
+                i++;
+            } else {
+                array[k] = M[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < n1) {
+            array[k] = L[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            array[k] = M[j];
+            j++;
+            k++;
+        }
+    }
+
+    void mergeSort(int array[], int left, int right) {
+        if (left < right) {
+
+            int mid = (left + right) / 2;
+
+            mergeSort(array, left, mid);
+            mergeSort(array, mid + 1, right);
+
+            merge(array, left, mid, right);
+        }
+    }
+
+    public static void main(String args[]) {
+
+        int[] array = { 6, 5, 12, 10, 9, 1 };
+
+        Main ob = new Main();
+
+        ob.mergeSort(array, 0, array.length - 1);
+
+        System.out.println("Sorted Array:");
+        System.out.println(Arrays.toString(array));
+    }
+}
+
+
+
+-- binry search tree
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+
+    public Node(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree {
+    Node root;
+
+    public BinaryTree() {
+        root = null;
+    }
+
+    // Function to insert a new node
+    public void insert(int data) {
+        root = insertRecursive(root, data);
+    }
+
+    // Recursive function to insert a new node
+    private Node insertRecursive(Node root, int data) {
+        if (root == null) {
+            root = new Node(data);
+            return root;
+        }
+
+        if (data < root.data) {
+            root.left = insertRecursive(root.left, data);
+        } else if (data > root.data) {
+            root.right = insertRecursive(root.right, data);
+        }
+
+        return root;
+    }
+
+    // Function to perform an in-order traversal
+    public void inorderTraversal(Node root) {
+        if (root != null) {
+            inorderTraversal(root.left);
+            System.out.print(root.data + " ");
+            inorderTraversal(root.right);
+        }
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+
+        // Inserting elements into the binary tree
+        tree.insert(50);
+        tree.insert(30);
+        tree.insert(70);
+        tree.insert(20);
+        tree.insert(40);
+        tree.insert(60);
+        tree.insert(80);
+
+        // Performing an in-order traversal
+        System.out.println("In-order traversal of the binary tree:");
+        tree.inorderTraversal(tree.root);
+        // Output: 20 30 40 50 60 70 80
+    }
+}
+
+--Easy Queue
+
+public class Queue {
+    int rear;
+    int front;
+    int capacity;
+    int queueArr[];
+
+    Queue(int size){
+        rear = -1;
+        front = 0;
+        capacity = size;
+        queueArr = new int[size];
+    }
+
+    boolean isFull(){
+        return rear+1 == capacity;
+    }
+
+    boolean isEmpty(){
+        return rear<front;
+    }
+
+    void enqueue(int x){
+        if(isFull()){
+            System.out.println("Queue Is Full");
+        }
+        else{
+           rear++;
+           queueArr[rear] = x;
+           System.out.println("inserting :"+ x);
+        }
+    }
+
+    void dequeue(){
+        if(isEmpty()){
+            System.out.println("Queue Is Empty");
+        }
+        else{
+            System.out.println("Removing" + queueArr[front]);
+            front++;
+        }
+    }
+
+    void printQueue(){
+        for(int i=front; i<=rear; i++){
+            System.out.print(queueArr[i]+" ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue myqueue = new Queue(5);
+
+        myqueue.enqueue(10);
+        myqueue.enqueue(20);
+        myqueue.enqueue(30);
+        myqueue.enqueue(40);
+        myqueue.enqueue(50);
+        myqueue.enqueue(60);
+
+        myqueue.dequeue();
+        myqueue.dequeue();
+
+        myqueue.printQueue();
+    }
+}
